@@ -1,0 +1,22 @@
+{
+    "inbounds": [
+        {
+            "port": 10248,
+            "protocol": "shadowsocks",
+            "settings": {
+                "clients": [
+                    {
+                        "password": "noobnetwork",
+                        "method": "aes-256-gcm"
+                    }
+                ],
+                "network": "tcp,udp"
+            }
+        }
+    ],
+    "outbounds": [
+		{
+			"protocol": "freedom"
+		}
+    ]
+}

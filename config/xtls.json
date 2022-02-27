@@ -1,0 +1,48 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "address": "127.0.0.1",
+            "port": 10000,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "noobnetwork", // 填写你的 UUID
+                        "flow": "xtls-rprx-direct"
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": 443
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls",
+                "xtlsSettings": {
+                    "serverName": "", // 填写服务器域名
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/etc/letsencrypt/live//fullchain.pem",
+                            "keyFile": "/etc/letsencrypt/live//privkey.pem"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+		{
+			"protocol": "freedom"
+		}
+    ]
+}
