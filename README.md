@@ -10,10 +10,10 @@ installed: /usr/local/etc/xray/ss.json
 
 第一次运行
 ```
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install && wget https://github.com/N0o6/v2ray/blob/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install && wget https://github.com/N0o6/xray-install/raw/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
 ```
 
 运行
 ```
-wget https://github.com/N0o6/v2ray/blob/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
+wget https://github.com/N0o6/xray-install/raw/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
 ```
