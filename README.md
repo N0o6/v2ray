@@ -8,12 +8,12 @@ installed: /usr/local/etc/xray/xtls.json
 installed: /usr/local/etc/xray/ss.json
 ```
 
-第一次运行
+第一次运行（未安装Xray-core）
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install && wget https://github.com/N0o6/xray-install/raw/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
 ```
 
-运行
+运行（已安装Xray-core）
 ```
 wget https://github.com/N0o6/xray-install/raw/main/install.sh --no-check-certificate && chmod +x install.sh && ./install.sh
 ```
