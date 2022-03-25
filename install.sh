@@ -91,20 +91,16 @@ domain_input() {
 domain_confirm() {
 	while :; do
 
-		read -p "$(echo -e "(你确定要使用这个域名吗: [${magenta}Y/N$none]):") " record
+		read -p "$(echo -e "(你确定已将本机iP解析到该域名了吗: [${magenta}Y/N$none]):") " record
 		if [[ -z "$record" ]]; then
 			domain_confirm
-		else
-			if [[ "$record" == [Yy] ]]; then
-				domain_check
-			else
-				if [[ "$record" == [Nn] ]]; then
-					clear
-					domain_input
-				fi
-			fi
+		elif [[ "$record" == [Yy] ]]; then
+			domain_check
+		elif [[ "$record" == [Nn] ]]; then
+			clear
+			domain_input
 		fi
-
+		
 	done
 }
 
@@ -114,26 +110,25 @@ domain_check() {
 		echo "----------------------------------------------------------------"
 		echo -e "$red 检测域名解析错误....$none"
 		echo
-		echo -e " 你的域名: $yellow$domain$none 未解析到: $cyan$ip$none"
+		echo -e " 输入的域名: $yellow$domain$none 未解析到本机IP: $cyan$ip$none"
 		echo
 		echo -e " 你的域名当前解析到: $cyan$test_domain$none"
 		echo "----------------------------------------------------------------"
-		
+		echo
+		echo "如果你的域名是使用 Cloudflare 解析的话，请确认使用。" 
 		read -p "$(echo -e "(你确定要使用这个域名吗: [${magenta}Y/N$none]):") " record
+	else 
 		if [[ -z "$record" ]]; then
 			clear
 			domain_check
 		else
 			if [[ "$record" == [Yy] ]]; then
 				certbot_configration
-			else
-				if [[ "$record" == [Nn] ]]; then
-					clear
-					domain_input
-				fi
+			elif [[ "$record" == [Nn] ]]; then
+				clear
+				domain_input
 			fi
 		fi
-
 	fi
 }
 
